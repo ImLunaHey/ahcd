@@ -1,6 +1,6 @@
 {
   "name": "@imlunahey/ahcd",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Apple Health Care Data convert xml to csv",
   "main": "dist/AppleHealthCareData.js",
   "types": "dist/AppleHealthCareData.d.ts",
