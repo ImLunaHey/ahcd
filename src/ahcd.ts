@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createReadStream, existsSync, mkdirSync } from 'fs';
 import minimist from 'minimist';
 import pkg from '../package.json';
