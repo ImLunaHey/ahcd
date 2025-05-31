@@ -1,6 +1,6 @@
 {
   "name": "ahcd",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Apple Health Care Data convert xml to csv",
   "main": "dist/AppleHealthCareData.js",
   "bin": {
@@ -30,6 +30,11 @@
     "url": "https://github.com/imlunahey/ahcd/issues"
   },
   "homepage": "https://github.com/imlunahey/ahcd#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "csv-writer": "^1.6.0",
     "elementtree": "^0.1.7",
