@@ -9,7 +9,7 @@ if (argv._.length < 1 || argv.h) {
   console.error('================================================================================');
   console.error(pkg.description);
   console.error('');
-  console.error(`Author     : ${pkg.author.name} <${pkg.author.email}> ${pkg.author.url}`);
+  console.error(`Author     : ${pkg.author.name} ${pkg.author.url}`);
   console.error(`Homepage   : ${pkg.homepage}`);
   console.error(`LICENSE    : ${pkg.license}`);
   console.error(`Report bugs: ${pkg.bugs.url}`);
