@@ -1,5 +1,5 @@
 {
-  "name": "ahcd",
+  "name": "@imlunahey/ahcd",
   "version": "0.0.0",
   "description": "Apple Health Care Data convert xml to csv",
   "main": "dist/AppleHealthCareData.js",
