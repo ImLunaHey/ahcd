@@ -28,7 +28,7 @@ This is a fork of the original [ahcd](https://github.com/freddiefujiwara/ahcd) p
 Install the command globally:
 
 ```bash
-$ npm i -g ahcd
+$ npm i -g @imlunahey/ahcd
 ```
 
 ## As a library
@@ -36,7 +36,7 @@ $ npm i -g ahcd
 Install as a dependency in your project:
 
 ```bash
-$ npm i ahcd
+$ npm i @imlunahey/ahcd
 ```
 
 # Usage
@@ -44,11 +44,11 @@ $ npm i ahcd
 ## CLI Usage
 
 ```bash
-$ ahcd
+$ npx @imlunahey/ahcd@latest export.xml
 ================================================================================
 Apple Health Care Data convert xml to csv
 
-Author     : luna
+Author     : luna (forked from Fumikazu Fujiwara) https://github.com/ImLunaHey
 Homepage   : https://github.com/imlunahey/ahcd#readme
 LICENSE    : MIT
 Report bugs: https://github.com/imlunahey/ahcd/issues
@@ -64,7 +64,7 @@ Usage: ahcd [-h] <file> [-t <type>] [-d <dir>]
 ## Library Usage
 
 ```typescript
-import { AppleHealthCareData } from 'ahcd';
+import { AppleHealthCareData } from '@imlunahey/ahcd';
 import { createReadStream } from 'fs';
 
 async function processHealthData() {
@@ -88,7 +88,7 @@ async function processHealthData() {
 # Demo
 
 ```bash
-$ ahcd -d . export.xml
+$ npx @imlunahey/ahcd@latest -d . export.xml
 Read export.xml
 Analyze export.xml
 Wrote . /Height.csv (1 records)
