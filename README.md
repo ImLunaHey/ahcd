@@ -1,70 +1,94 @@
-[![npm version](https://badge.fury.io/js/ahcd.svg)](https://badge.fury.io/js/ahcd)
-![Node.js CI](https://github.com/freddiefujiwara/ahcd/workflows/Node.js%20CI/badge.svg)
 # ahcd
+
 Apple Health Care Data convert xml to csv
 
-[TRY this online](https://freddiefujiwara.github.io/ahcd/)
+# Introduction
 
-# Introduction.
+This is a fork of the original [ahcd](https://github.com/freddiefujiwara/ahcd) project, with significant improvements:
 
-Are you using the iOS app [Health](https://www.apple.com/ios/health/)?
-If you're one of those people, your health data, such as your weight, sleep duration, and steps, is might recorded on your Apple Health app.
-The app shows some graph and visible data on the app, but why don't you want to analyze the data yourself.
-there are many forms of data analysis and data visualization. In this repository , I'd like to use a spreadsheet application like Excel or Google Sheets to csv output for analysis.
-I'm going to show you how to do this with [I created a CLI](https://www.npmjs.com/package/ahcd).
+- Rewritten in TypeScript for better type safety and developer experience
+- Improved streaming XML parsing for better memory efficiency
+- Enhanced error handling and progress reporting
+- Better test coverage and CI integration
+- Modern build system and package structure
 
-# How to extract Apple health data.
-First, take a look at this 
+# Features
 
-![](https://github.com/freddiefujiwara/ahcd/blob/master/docs/ezgif.com-video-to-gif.gif?raw=true)
+- Efficient streaming XML parsing for large health data exports
+- Memory-efficient processing with batch writing
+- Support for all Apple Health data types
+- Progress reporting during processing
+- Error handling for malformed XML
+- TypeScript support for developers
 
-- Open Health on your iPhone.
-- Tap the profile icon in the top right corner.
-- Scroll to the bottom of your health profile and tap "Export All Health Data".
-- Tap "Export" to confirm you want to export the data and start the export process (may take some minutes to complete)
-- Save the extracted file to your local computer or Google Drive
+# Installation
 
-# extracted files.
-![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1817/177f49a3-a068-c6c9-f42c-363a1817c3ca.png)
-you are going to use the **export.xml** in the context
+## As a CLI tool
 
-# Nodejs Environment Settings
-
-
-Please build a local Nodejs environment by referring to the following links
-- [How to Install Node.js and NPM on Windows](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
-- [Installing Node.js® and NPM on Mac](https://treehouse.github.io/installation-guides/mac/node-mac.html)
-
-# How to install the command
-Install the command [ahcd](https://www.npmjs.com/package/ahcd)
+Install the command globally:
 
 ```bash
 $ npm i -g ahcd
 ```
 
-# Usage.
+## As a library
+
+Install as a dependency in your project:
 
 ```bash
-$ ahcd                                                                                                                                                                                                
+$ npm i ahcd
+```
+
+# Usage
+
+## CLI Usage
+
+```bash
+$ ahcd
 ================================================================================
 Apple Health Care Data convert xml to csv
 
-Author     : Fumikazu Fujiwara 
-Homepage   : https://github.com/freddiefujiwara/ahcd#readme
+Author     : Luna Hey
+Homepage   : https://github.com/imlunahey/ahcd#readme
 LICENSE    : MIT
-Report bugs: https://github.com/freddiefujiwara/ahcd/issues
+Report bugs: https://github.com/imlunahey/ahcd/issues
 ================================================================================
 
 Usage: ahcd [-h] <file> [-t <type>] [-d <dir>]
 ```
-- The **＜file＞** argument must be **export.xml** which I mentioned.
+
+- The **＜ file ＞** argument must be **export.xml** which I mentioned.
 - -t outputs only a specific csv (e.g. -t BodyMass)
 - -d specifies the directory to output to (e.g., -d /path/to)
+
+## Library Usage
+
+```typescript
+import { AppleHealthCareData } from 'ahcd';
+import { createReadStream } from 'fs';
+
+async function processHealthData() {
+  const ahcd = new AppleHealthCareData('./output');
+  const xmlStream = createReadStream('export.xml');
+
+  // Parse XML and write CSVs
+  await ahcd.parseXml(xmlStream);
+  ahcd.writeCsvs();
+
+  // Get available data types
+  const keys = ahcd.keys();
+  console.log('Available data types:', keys);
+
+  // Get CSV content for a specific type
+  const heartRateCsv = ahcd.csv('HeartRate');
+  console.log('Heart Rate data:', heartRateCsv);
+}
+```
 
 # Demo
 
 ```bash
-$ ahcd -d . export.xml                                                                                                                                                                                
+$ ahcd -d . export.xml
 Read export.xml
 Analyze export.xml
 Wrote . /Height.csv (1 records)
@@ -79,8 +103,35 @@ Wrote . /SleepAnalysis.csv (1193 records)
 Wrote . /StepCount.csv (12032 records)
 Wrote . /DistanceWalkingRunning.csv (13631 records)
 ```
- 
-# Finally
-Now you can analyze it in a sheet such as Excel and google sheet.
-Also, [ahcd](https://www.npmjs.com/package/ahcd) is welcome to [pull request](https://github.com/freddiefujiwara/ahcd/issues)
-Thanks for reading the final part of the article
+
+# Development
+
+## Building from source
+
+```bash
+# Clone the repository
+git clone https://github.com/imlunahey/ahcd.git
+cd ahcd
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Run tests
+npm test
+```
+
+# Contributing
+
+Pull requests are welcome! Please ensure you:
+
+1. Add tests for new features
+2. Update documentation
+3. Follow the existing code style
+4. Run the test suite before submitting
+
+# License
+
+MIT
