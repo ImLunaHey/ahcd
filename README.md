@@ -48,7 +48,7 @@ $ ahcd
 ================================================================================
 Apple Health Care Data convert xml to csv
 
-Author     : Luna Hey
+Author     : luna
 Homepage   : https://github.com/imlunahey/ahcd#readme
 LICENSE    : MIT
 Report bugs: https://github.com/imlunahey/ahcd/issues
