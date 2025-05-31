@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freddiefujiwara/ahcd.git"
+    "url": "git+https://github.com/imlunahey/ahcd.git"
   },
   "scripts": {
     "test": "NODE_ENV=test vitest run",
@@ -22,15 +22,14 @@
     "csv"
   ],
   "author": {
-    "name": "Fumikazu Fujiwara",
-    "email": "npm@ze.gs",
-    "url": "http://freddiefujiwara.com"
+    "name": "luna (forked from Fumikazu Fujiwara)",
+    "url": "https://github.com/ImLunaHey"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/freddiefujiwara/ahcd/issues"
+    "url": "https://github.com/imlunahey/ahcd/issues"
   },
-  "homepage": "https://github.com/freddiefujiwara/ahcd#readme",
+  "homepage": "https://github.com/imlunahey/ahcd#readme",
   "dependencies": {
     "csv-writer": "^1.6.0",
     "elementtree": "^0.1.7",
